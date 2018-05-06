@@ -3,6 +3,23 @@
 add_action('wp_enqueue_scripts', 'styles');
 add_action('wp_enqueue_scripts', 'scripts');
 add_action('after_setup_theme', 'myMenu');
+add_action('widgets_init', 'register_my_widgets');
+
+
+
+function register_my_widgets(){
+	register_sidebar( array(
+		'name'          => 'Left sidebar',
+		'id'            => "left_sidebar",
+		'description'   => 'Описание сайдбара',
+		'before_widget' => '<div class="widget %2$s">',
+		'after_widget'  => "</div>\n",
+		'before_title'  => '<h5 class="widgettitle">',
+		'after_title'   => "</h5>\n",
+	) );
+}
+
+
 
 
 function myMenu(){
