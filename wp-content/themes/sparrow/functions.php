@@ -2,6 +2,16 @@
 
 add_action('wp_enqueue_scripts', 'styles');
 add_action('wp_enqueue_scripts', 'scripts');
+add_action('after_setup_theme', 'myMenu');
+
+
+function myMenu(){
+	register_nav_menu( 'topMenu', 'Меню в шапке' );
+	register_nav_menu( 'footerMenu', 'Меню в подвале' );
+
+	register_nav_menu( 'social', 'Соц меню' );
+}
+
 
 function styles()
 {
